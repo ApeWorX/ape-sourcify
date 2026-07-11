@@ -2,8 +2,6 @@ name: Live Sourcify
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 7 * * 1"
 
 jobs:
   production:
