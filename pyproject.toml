@@ -77,7 +77,7 @@ packages = ["ape_sourcify"]
 package-data = { "ape_sourcify" = ["py.typed"] }
 
 [tool.setuptools_scm]
-fallback_version = "0.1.0"
+fallback_version = "0.8.0"
 write_to = "ape_sourcify/version.py"
 
 [tool.pytest.ini_options]
