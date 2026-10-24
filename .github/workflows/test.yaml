@@ -48,7 +48,12 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: ${{ matrix.python-version }}
-      - run: uv run --locked --group test pytest
+      # ape test loads pandas/numpy; eth-ape pins numpy<2 which has no
+      # cp313/cp314 Windows wheels, so the sdist build crashes on those jobs.
+      - if: runner.os != 'Windows'
+        run: uv run --locked --group test ape test
+      - if: runner.os == 'Windows'
+        run: uv run --locked --group test pytest -p no:ape_test
 
   build:
     runs-on: ubuntu-latest

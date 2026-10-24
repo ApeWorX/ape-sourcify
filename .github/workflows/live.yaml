@@ -13,4 +13,4 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
-      - run: uv run --locked --group test pytest -m live -o addopts="" -q
+      - run: uv run --locked --group test ape test -m live -o addopts="" -q
