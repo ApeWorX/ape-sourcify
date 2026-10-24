@@ -2,16 +2,19 @@ name: PR Title
 
 on:
   pull_request_target:
-    types: [opened, edited, synchronize]
-
-permissions:
-  contents: read
+    types:
+      - opened
+      - edited
+      - synchronize
 
 jobs:
-  conventional-title:
+  check:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: astral-sh/setup-uv@v7
-      - run: uvx commitlint -- "$PR_TITLE"
-        env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
+    - uses: astral-sh/setup-uv@v7
+
+    - name: Check PR Title
+      env:
+        PR_TITLE: ${{ github.event.pull_request.title }}
+      run: uvx commitlint "$PR_TITLE"
