@@ -174,7 +174,7 @@ installed.
 
 ```bash
 uv sync --all-groups
-uv run --locked pytest
+uv run --locked ape test
 uv run --locked ruff check .
 uv run --locked ruff format --check .
 uv run --locked mypy ape_sourcify
@@ -185,7 +185,7 @@ uv run --locked --group release twine check dist/*
 Live production checks are opt-in:
 
 ```bash
-uv run --locked pytest -m live -o addopts=""
+uv run --locked ape test -m live -o addopts=""
 ```
 
 ## License

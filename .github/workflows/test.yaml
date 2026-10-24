@@ -48,7 +48,7 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           python-version: ${{ matrix.python-version }}
-      - run: uv run --locked --group test pytest
+      - run: uv run --locked --group test ape test
 
   build:
     runs-on: ubuntu-latest
